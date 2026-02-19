@@ -1,0 +1,17 @@
+[package]
+name = "vol"
+version = "0.1.0"
+edition = "2021"
+authors = ["Your Name <email@example.com>"]
+description = "Fast native macOS volume control"
+license = "MIT OR Apache-2.0"
+
+[dependencies]
+objc2-core-audio = { version = "0.3", features = ["AudioHardware"] }
+
+[profile.release]
+opt-level = 3
+lto = "fat"
+strip = "symbols"
+codegen-units = 1
+panic = "abort"
